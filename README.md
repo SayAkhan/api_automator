@@ -156,7 +156,3 @@ git push
 
 > 명령어를 플러그인 내부 `commands/` 에 두면 `/qa-jira-tracker:api_automator` 처럼 네임스페이스 prefix 가 강제되므로, `setup/` 아래에 두고 `install.sh` 가 사용자 글로벌 디렉토리(`~/.claude/commands/`) 에 복사합니다. 결과적으로 `/api_automator` 짧은 형태로 호출되며, 둘 다 같은 skill(`qa-jira-tracker:qa-test-error-jira`) 을 호출합니다.
 
-## 참조
-
-- 샘플 이슈 포맷: https://doverunner.atlassian.net/browse/FWM-3385
-- Author: leon.ji@doverunner.com
