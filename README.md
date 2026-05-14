@@ -39,15 +39,21 @@ API/QA 테스트 중 발견된 에러를 사용자가 지정한 Jira 부모 이�
 ~/.claude/commands/api_automator.md                 # 글로벌 슬래시 명령어
 ```
 
-### A. 새 PC에 처음 설치 (Git 경유)
-
-GitHub private repo로 배포되었다고 가정합니다.
+### A. 새 PC에 처음 설치 — 한 줄 부트스트랩
 
 ```bash
-# 1) 플러그인을 marketplace 위치로 clone
-git clone <repo-url> ~/.claude/plugins/marketplaces/qa-jira-tracker
+curl -fsSL https://raw.githubusercontent.com/SayAkhan/api_automator/main/bootstrap.sh | bash
+```
 
-# 2) 글로벌 슬래시 명령어 설치
+`bootstrap.sh` 는 다음을 수행합니다:
+1. `~/.claude/plugins/marketplaces/qa-jira-tracker/` 가 없으면 git clone, 있으면 git pull
+2. 내부의 `install.sh` 호출 → 글로벌 명령어 `~/.claude/commands/api_automator.md` 설치
+3. Claude Code 안에서 실행할 명령 안내
+
+수동으로 단계 분리하고 싶다면:
+
+```bash
+git clone https://github.com/SayAkhan/api_automator.git ~/.claude/plugins/marketplaces/qa-jira-tracker
 cd ~/.claude/plugins/marketplaces/qa-jira-tracker
 ./install.sh
 ```
@@ -66,9 +72,15 @@ cd ~/.claude/plugins/marketplaces/qa-jira-tracker
 ### B. 업데이트 (이미 설치된 PC)
 
 ```bash
+# 한 줄 (bootstrap 이 pull + install 까지 처리)
+curl -fsSL https://raw.githubusercontent.com/SayAkhan/api_automator/main/bootstrap.sh | bash
+```
+
+또는:
+
+```bash
 cd ~/.claude/plugins/marketplaces/qa-jira-tracker
-git pull
-./install.sh    # 글로벌 명령어 갱신
+git pull && ./install.sh
 ```
 
 그 다음 Claude Code 안에서 `/reload-plugins`.
@@ -134,7 +146,8 @@ git push
 │       └── SKILL.md
 ├── setup/
 │   └── api_automator.md                             # 글로벌 명령어 소스 (배포용)
-├── install.sh                                       # 글로벌 명령어 자동 설치
+├── bootstrap.sh                                     # 새 PC 한 줄 설치 (curl | bash)
+├── install.sh                                       # 글로벌 명령어 자동 설치 (bootstrap 이 호출)
 ├── .gitignore
 └── README.md
 
