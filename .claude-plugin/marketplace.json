@@ -1,0 +1,20 @@
+{
+  "name": "qa-jira-tracker",
+  "owner": {
+    "name": "leon.ji",
+    "email": "leon.ji@doverunner.com"
+  },
+  "metadata": {
+    "description": "API/QA 테스트 중 발견된 에러를 사용자가 지정한 Jira 부모 이슈의 하위 작업(Sub-task)으로 등록한다.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "qa-jira-tracker",
+      "source": "./",
+      "description": "/api_automator <jira-url> 로 부모 이슈 등록 후, 자연어로 보고한 에러를 FWM-3385 포맷(재현 스텝/발생 현상/기대 현상/기타)의 하위 작업으로 Jira에 자동 등록.",
+      "category": "qa",
+      "tags": ["qa", "jira", "testing", "bug-tracking", "doverunner"]
+    }
+  ]
+}

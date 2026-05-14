@@ -1,0 +1,17 @@
+{
+  "name": "qa-jira-tracker",
+  "version": "0.1.0",
+  "description": "API/QA 테스트 중 발견된 에러를 사용자가 지정한 Jira 부모 이슈의 하위 작업(Sub-task)으로 등록합니다. FWM-3385 포맷(재현 스텝/발생 현상/기대 현상/기타) 준수.",
+  "author": {
+    "name": "leon.ji",
+    "email": "leon.ji@doverunner.com"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "qa",
+    "jira",
+    "testing",
+    "bug-tracking",
+    "doverunner"
+  ]
+}
