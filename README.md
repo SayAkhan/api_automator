@@ -9,7 +9,7 @@ API/QA 테스트 중 발견된 에러를 사용자가 지정한 Jira 부모 이�
   - **능동 모드 (진입점 A)** — `/api_automator` 또는 "API 테스트 시작" 같은 발화. skill 이 직접 테스트를 찾아 실행하고 결과를 분석한다.
   - **수동 모드 (진입점 B)** — 사용자가 자연어로 에러를 보고할 때. 자동화가 아닌 탐색/수동 테스트용.
 
-## 이슈 포맷 (FWM-3385 기반)
+## 이슈 포맷 (DEMO-3385 기반)
 
 **Summary:**
 ```
@@ -100,14 +100,14 @@ git push
 /api_automator
 → "어떤 Jira 부모 이슈 아래로 등록할까요? URL 또는 이슈 키를 입력해주세요."
 
-(사용자: https://doverunner.atlassian.net/browse/FWM-4022)
-→ read_jira_issue 로 검증 → "부모 이슈 확인됨: FWM-4022 [QA] Test ..."
+(사용자: https://yourcompany.atlassian.net/browse/DEMO-4022)
+→ read_jira_issue 로 검증 → "부모 이슈 확인됨: DEMO-4022 [QA] Test ..."
 
 → 워킹 디렉토리에서 pytest.ini 발견 → `python3 -m pytest` 실행
 → 22 failed, 104 passed, 2 skipped, 2 xfailed (26.94s)
 → 5건 초과 → 패턴 그룹화 후 사용자에게 등록 전략 묻기
 → 사용자 승인 → mcp__atlassian__create_jira_issue 병렬 호출
-→ FWM-4023 ~ FWM-4044 일괄 생성 → 결과 표로 회신
+→ DEMO-4023 ~ DEMO-4044 일괄 생성 → 결과 표로 회신
 ```
 
 ## 사용 예 — 수동 모드
@@ -123,7 +123,7 @@ git push
 ## 의존성
 
 - MCP 서버: `mcp__atlassian` (Jira API 접근)
-- Jira 프로젝트: `FWM` (또는 부모 이슈에서 추출되는 임의 프로젝트)
+- Jira 프로젝트: `DEMO` (또는 부모 이슈에서 추출되는 임의 프로젝트)
 
 ## 행동 원칙
 
